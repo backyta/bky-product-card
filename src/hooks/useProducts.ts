@@ -12,11 +12,13 @@ interface useProductArgs{
 export const useProducts = ({ onChange, product, value = 0, initialValues }: useProductArgs) => {
 
   const [counter, setCounter] = useState<number>( initialValues?.count || value );
+
   const isMounted = useRef(false);
 
   // console.log(initialValues?.count);
 
   const increseBy = ( value: number ) =>{
+    
     let newValue = Math.max( counter + value, 0 ) // se asegura de que sea menos de 0
 
     if (initialValues?.maxCount) {
